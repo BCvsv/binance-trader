@@ -215,7 +215,7 @@ class Trading():
                 self.cancel(symbol, sell_id)
                 exit(1)
 
-            while (sell_status != 'FILLED'):
+            while (sell_order['status'] != 'FILLED'):
                 time.sleep(self.WAIT_TIME_CHECK_SELL)
                 sell_status = Orders.get_order(symbol, sell_id)['status']
                 lastPrice = Orders.get_ticker(symbol)
